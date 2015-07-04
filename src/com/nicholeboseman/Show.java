@@ -9,6 +9,9 @@ public class Show {
 		songs = new ArrayList<String>();
 	} 
 	
+	public void getSongs() {
+		
+	}
 	public void addSong( String song ) {
 		songs.add( song );
 	}
@@ -17,17 +20,7 @@ public class Show {
 		String returnString;
 		
 		returnString = this.title + "\n";
-		String[] songs = new String[this.songs.size() ];
-		songs = this.songs.toArray(songs);
-		
-		for (String song: songs ) {
-			try {
-			HttpDownloadUtility.downloadFile(song, ".");
-			} catch( Exception e ) {
-				System.err.println( e.getMessage());
-			}
-			returnString += "\t" + song + "\n";
-		}
+		returnString += songs.toString();
 		return returnString;
 	}
 }
